@@ -8,12 +8,15 @@
 
     <ListView
         android:id="@+id/listView"
+        style="@style/Widget.AppCompat.Light.ListView.DropDown"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
+        android:background="#FFFFFF"
+        android:contextClickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
