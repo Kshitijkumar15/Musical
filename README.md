@@ -17,3 +17,6 @@ List Screenshot
 main Screenshot
 ![main Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Screenshot_20230723-192756.png)
 
+Video
+![Video Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/screen-20230723-192844%7E3.mp4)
+
