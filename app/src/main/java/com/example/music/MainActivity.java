@@ -1,12 +1,14 @@
 package com.example.music;
 
-import static android.Manifest.permission;
-
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,53 +23,100 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+     private Button btnRequest;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ListView listView;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listView);
-        Dexter.withContext(this)
-                .withPermission(permission.READ_EXTERNAL_STORAGE)
-                .withListener(new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+        btnRequest = findViewById(R.id.btnPermission);
+//        btnRequest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                requestPermissions();
+//            }
+//        });
 
-//                     Toast.makeText(MainActivity.this, "Runtime permission given", Toast.LENGTH_SHORT).show();
-                        ArrayList<File> mySongs = fetchSongs(Environment.getExternalStorageDirectory());
-                        String [] items = new String[mySongs.size()];
-                        for(int i=0;i<mySongs.size();i++){
-                            items[i] = mySongs.get(i).getName().replace(".mp3", "");
-                        }
-
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, items);
-                        listView.setAdapter(adapter);
-                        listView.setOnItemClickListener((parent, view, position, id) -> {
-                            Intent intent = new Intent(MainActivity.this, PlaySong.class);
-                            String currentSong = listView.getItemAtPosition(position).toString();
-                            intent.putExtra("songList", mySongs);
-                            intent.putExtra("currentSong", currentSong);
-                            intent.putExtra("position", position);
-                            startActivity(intent);
-                        });
-
-
-                    }
-
-                    @Override
-                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-
-                    }
-
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-                        permissionToken.continuePermissionRequest();
-                    }
-                })
-                .check();
+//        Dexter.withContext(this)
+//                .withPermission(permission.READ_EXTERNAL_STORAGE)
+//                .withListener(new PermissionListener() {
+//                    @Override
+//                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+//
+////                     Toast.makeText(MainActivity.this, "Runtime permission given", Toast.LENGTH_SHORT).show();
+//                        ArrayList<File> mySongs = fetchSongs(Environment.getExternalStorageDirectory());
+//                        String [] items = new String[mySongs.size()];
+//                        for(int i=0;i<mySongs.size();i++){
+//                            items[i] = mySongs.get(i).getName().replace(".mp3", "");
+//                        }
+//
+//                        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, items);
+//                        listView.setAdapter(adapter);
+//                        listView.setOnItemClickListener((parent, view, position, id) -> {
+//                            Intent intent = new Intent(MainActivity.this, PlaySong.class);
+//                            String currentSong = listView.getItemAtPosition(position).toString();
+//                            intent.putExtra("songList", mySongs);
+//                            intent.putExtra("currentSong", currentSong);
+//                            intent.putExtra("position", position);
+//                            startActivity(intent);
+//                        });
+//
+//
+//                    }
+//
+//                    @Override
+//                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+//                        permissionToken.continuePermissionRequest();
+//                    }
+//                })
+//                .check();
     }
 
-    public ArrayList<File> fetchSongs(File file){
+    private void requestPermissions() {
+        Dexter.withContext(this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new PermissionListener() {
+            @Override
+            public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                btnRequest.setVisibility(View.INVISIBLE);
+                Toast.makeText(MainActivity.this, "Internal Storage accessed", Toast.LENGTH_SHORT).show();
+                ArrayList<File> mySongs = fetchSongs(Environment.getExternalStorageDirectory());
+                String [] items = new String[mySongs.size()];
+                for(int i=0;i<mySongs.size();i++){
+                    items[i] = mySongs.get(i).getName().replace(".mp3", "");
+                }
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, items);
+                listView.setAdapter(adapter);
+                listView.setOnItemClickListener((parent, view, position, id) -> {
+                    Intent intent = new Intent(MainActivity.this, PlaySong.class);
+                    String currentSong = listView.getItemAtPosition(position).toString();
+                    intent.putExtra("songList", mySongs);
+                    intent.putExtra("currentSong", currentSong);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
+                });
+            }
+
+            @Override
+            public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+                permissionToken.continuePermissionRequest();
+            }
+        }).check();
+    }
+
+    public ArrayList fetchSongs(File file){
             ArrayList arrayList = new ArrayList();
             File [] songs = file.listFiles();
             if(songs !=null){
@@ -82,5 +131,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             return arrayList;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        requestPermissions();
     }
 }

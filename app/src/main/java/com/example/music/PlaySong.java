@@ -1,7 +1,5 @@
 package com.example.music;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -10,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -42,7 +42,8 @@ public class PlaySong extends AppCompatActivity {
         previous = findViewById(R.id.previous);
         next = findViewById(R.id.next);
         seekBar = findViewById(R.id.seekBar);
-
+        //to hide the action bar
+        getSupportActionBar().hide();
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         songs = (ArrayList) bundle.getParcelableArrayList("songList");
