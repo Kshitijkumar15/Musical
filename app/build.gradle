@@ -8,9 +8,9 @@ android {
 
     defaultConfig {
         applicationId "com.example.music"
-        minSdk 21
+        minSdk 23
         //noinspection ExpiredTargetSdkVersion,ExpiredTargetSdkVersion
-        targetSdk 23
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 

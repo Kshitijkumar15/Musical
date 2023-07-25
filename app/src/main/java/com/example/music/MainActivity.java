@@ -24,8 +24,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-     private Button btnRequest;
+    private Button btnRequest;
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -87,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 btnRequest.setVisibility(View.INVISIBLE);
                 Toast.makeText(MainActivity.this, "Internal Storage accessed", Toast.LENGTH_SHORT).show();
                 ArrayList<File> mySongs = fetchSongs(Environment.getExternalStorageDirectory());
-                String [] items = new String[mySongs.size()];
-                for(int i=0;i<mySongs.size();i++){
+                String[] items = new String[mySongs.size()];
+                for (int i = 0; i < mySongs.size(); i++) {
                     items[i] = mySongs.get(i).getName().replace(".mp3", "");
                 }
 
@@ -116,21 +117,21 @@ public class MainActivity extends AppCompatActivity {
         }).check();
     }
 
-    public ArrayList fetchSongs(File file){
-            ArrayList arrayList = new ArrayList();
-            File [] songs = file.listFiles();
-            if(songs !=null){
-                for(File myFile: songs){
-                    if(!myFile.isHidden() && myFile.isDirectory())
-                        arrayList.addAll(fetchSongs(myFile));
-                    else{
-                        if(myFile.getName().endsWith(".mp3") && !myFile.getName().startsWith(".")){
-                            arrayList.add(myFile);
-                        }
+    public ArrayList fetchSongs(File file) {
+        ArrayList arrayList = new ArrayList();
+        File[] songs = file.listFiles();
+        if (songs != null) {
+            for (File myFile : songs) {
+                if (!myFile.isHidden() && myFile.isDirectory())
+                    arrayList.addAll(fetchSongs(myFile));
+                else {
+                    if (myFile.getName().endsWith(".mp3") && !myFile.getName().startsWith(".")) {
+                        arrayList.add(myFile);
                     }
                 }
             }
-            return arrayList;
+        }
+        return arrayList;
     }
 
     @Override
