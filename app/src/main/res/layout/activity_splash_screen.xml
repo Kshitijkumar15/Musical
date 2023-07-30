@@ -6,26 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".splashScreen">
 
-    <ImageView
-        android:id="@+id/splash"
-        android:layout_width="200dp"
-        android:layout_centerInParent="true"
-        android:layout_height="200dp"
-        android:src="@drawable/splashpic"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lotAnim"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvSlogan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.588"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/animation_lkp27j0n" />
+
 
     <TextView
         android:id="@+id/tvSlogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/splash"
+        android:layout_below="@+id/lotAnim"
         android:layout_centerInParent="true"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="80dp"
         android:text="Let's Enjoy"
-        android:textColor="@color/black"
+        android:textColor="?android:textColorPrimary"
         android:textSize="25sp"
         tools:ignore="HardcodedText" />
 

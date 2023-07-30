@@ -23,6 +23,7 @@
 
     <TextView
         android:id="@+id/textView"
+        android:textColor = "?android:textColorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -32,7 +33,6 @@
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:text="TextView"
-        android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,10 +84,10 @@
         android:layout_marginStart="31dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="169dp"
-        android:outlineAmbientShadowColor="#E40000"
-        android:outlineSpotShadowColor="#E40000"
+        android:outlineAmbientShadowColor="#0091EA"
+        android:outlineSpotShadowColor="#0091EA"
         android:progressTint="@color/cardview_dark_background"
-        android:thumbTint="#ED0000"
+        android:thumbTint="#0091EA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -97,24 +97,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00:00"
+        android:textColor = "?android:textColorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/seekBar"
         app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772"
+        app:layout_constraintVertical_bias="0.787"
         tools:ignore="HardcodedText" />
+
 
     <TextView
         android:id="@+id/totalTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="05:00"
+        android:textColor = "?android:textColorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toEndOf="@+id/seekBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762" />
+        app:layout_constraintVertical_bias="0.786" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

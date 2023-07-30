@@ -1,5 +1,6 @@
 package com.example.music;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -30,13 +31,13 @@ public class PlaySong extends AppCompatActivity {
     private TextView currentTime, totalTime;
 
 
-    private Handler hand = new Handler();
+    private final Handler hand = new Handler();
     TextView textView;
     ImageView play, previous, next;
     ArrayList<File> songs;
     MediaPlayer mediaPlayer;
     String textContent;
-    int position;
+    int position,tDuration;
     SeekBar seekBar;
     Thread updateSeek;
 
@@ -89,6 +90,22 @@ public class PlaySong extends AppCompatActivity {
             }
         });
 
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                nextSong();
+            }
+        });
+
+
+
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playSong();
+            }
+        });
+
 //        updateSeek = new Thread() {
 //            @Override
 //            public void run() {
@@ -107,32 +124,18 @@ public class PlaySong extends AppCompatActivity {
 //        };
 //        updateSeek.start();
 
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mediaPlayer.isPlaying()) {
-                    play.setImageResource(R.drawable.play);
-                    mediaPlayer.pause();
-                } else {
-                    play.setImageResource(R.drawable.pause);
-                    mediaPlayer.start();
-                }
 
-            }
-        });
+
+
 
 
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int tDuration;
+                previousSong();
 //                mediaPlayer.stop();
 //                mediaPlayer.release();
-                if (position != 0) {
-                    position = position - 1;
-                } else {
-                    position = songs.size() - 1;
-                }
+
                 Uri uri = Uri.parse(songs.get(position).toString());
                 mediaPlayer.reset();
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
@@ -142,7 +145,7 @@ public class PlaySong extends AppCompatActivity {
                 play.setImageResource(R.drawable.pause);
                 seekBar.setMax(tDuration);
                 seekBar.setMax(mediaPlayer.getDuration());
-                textContent = songs.get(position).getName().toString();
+                textContent = songs.get(position).getName();
                 textView.setText(textContent);
                 totalTime.setText(String.format("%d:%d", TimeUnit.MILLISECONDS.toMinutes((long) tDuration), TimeUnit.MILLISECONDS.toSeconds((long) tDuration) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) tDuration))));
 
@@ -151,26 +154,15 @@ public class PlaySong extends AppCompatActivity {
 
 
         next.setOnClickListener(new View.OnClickListener() {
+            int tDuration;
+
+            @SuppressLint("DefaultLocale")
             @Override
+
             public void onClick(View v) {
-                int tDuration;
+
 //                mediaPlayer.release();
-                if (position != songs.size() - 1) {
-                    position = position + 1;
-                } else {
-                    position = 0;
-                }
-                Uri uri = Uri.parse(songs.get(position).toString());
-                mediaPlayer.reset();
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
-                mediaPlayer.start();
-                tDuration = mediaPlayer.getDuration();
-                sTime = mediaPlayer.getCurrentPosition();
-                play.setImageResource(R.drawable.pause);
-                seekBar.setMax(tDuration);
-                textContent = songs.get(position).getName().toString();
-                textView.setText(textContent);
-                totalTime.setText(String.format("%d:%d", TimeUnit.MILLISECONDS.toMinutes((long) tDuration), TimeUnit.MILLISECONDS.toSeconds((long) tDuration) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) tDuration))));
+                nextSong();
 
 
             }
@@ -178,7 +170,29 @@ public class PlaySong extends AppCompatActivity {
 
     }
 
-    private Runnable UpdateSongTime = new Runnable() {
+    void nextSong(){
+        if (position != songs.size() - 1) {
+            position = position + 1;
+
+        } else {
+            position = 0;
+        }
+        Uri uri = Uri.parse(songs.get(position).toString());
+        mediaPlayer.reset();
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
+        mediaPlayer.start();
+        tDuration = mediaPlayer.getDuration();
+        sTime = mediaPlayer.getCurrentPosition();
+        play.setImageResource(R.drawable.pause);
+        seekBar.setMax(tDuration);
+        textContent = songs.get(position).getName();
+        textView.setText(textContent);
+        totalTime.setText(String.format("%d:%d", TimeUnit.MILLISECONDS.toMinutes((long) tDuration), TimeUnit.MILLISECONDS.toSeconds((long) tDuration) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) tDuration))));
+
+    }
+
+
+    private final Runnable UpdateSongTime = new Runnable() {
         @Override
         public void run() {
             sTime = mediaPlayer.getCurrentPosition();
@@ -187,4 +201,29 @@ public class PlaySong extends AppCompatActivity {
             hand.postDelayed(this, 100);
         }
     };
+
+
+    void playSong(){
+        if (mediaPlayer.isPlaying()) {
+            play.setImageResource(R.drawable.play);
+            mediaPlayer.pause();
+        } else {
+            play.setImageResource(R.drawable.pause);
+            mediaPlayer.start();
+
+        }
+
+    }
+
+    void previousSong(){
+        if (position != 0) {
+            position = position - 1;
+        } else {
+            position = songs.size() - 1;
+        }
+    }
+
+
+
+
 }
