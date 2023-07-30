@@ -9,13 +9,13 @@ Splash Screenshot
 ![Splash Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Splash.jpg)
 
 Permission Screenshot
-![Permission Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Screenshot_20230723-192746.png)
+![Permission Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Permission.png)
 
-List Screenshot
-![List Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Screenshot_20230723-192751.png)
+SongList Screenshot
+![List Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Songlist.jpg)
 
-main Screenshot
-![main Screenshot][https://github.com/Kshitijkumar15/Music/blob/main/Main.jpg]
+Main Screenshot
+![main Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Main.jpg)
 
 
 
