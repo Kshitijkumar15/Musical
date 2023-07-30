@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listView);
-        btnRequest = findViewById(R.id.btnPermission);
+//        btnRequest = findViewById(R.id.btnPermission);
 //        btnRequest.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         Dexter.withContext(this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new PermissionListener() {
             @Override
             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                btnRequest.setVisibility(View.INVISIBLE);
+//                btnRequest.setVisibility(View.INVISIBLE);
                 Toast.makeText(MainActivity.this, "Internal Storage accessed", Toast.LENGTH_SHORT).show();
                 ArrayList<File> mySongs = fetchSongs(Environment.getExternalStorageDirectory());
                 String[] items = new String[mySongs.size()];
