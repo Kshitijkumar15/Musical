@@ -15,7 +15,7 @@ List Screenshot
 ![List Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Screenshot_20230723-192751.png)
 
 main Screenshot
-![main Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/main.png)
+![main Screenshot][https://github.com/Kshitijkumar15/Music/blob/main/Main.jpg]
 
 
 
