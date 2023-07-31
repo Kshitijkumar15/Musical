@@ -1,7 +1,7 @@
 
 # Music App
 
-An app to make your day better with a very good UI. Enjoy listning to the downloaded songs. 
+
 
 
 ## Screenshots
