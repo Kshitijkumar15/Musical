@@ -5,17 +5,20 @@ An app to make your day better with a very good UI. Enjoy listning to the downlo
 
 
 ## Screenshots
-Splash Screenshot 
+Splash  
 ![Splash Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Splash.jpg)
 
-Permission Screenshot
+Permission 
 ![Permission Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Permission.png)
 
-SongList Screenshot
+Song List 
 ![List Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Songlist.jpg)
 
-Main Screenshot
+Main 
 ![main Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/MainPage.jpg)
+
+Alert
+![Alert](https://github.com/Kshitijkumar15/Music/blob/main/Quit.jpg)
 
 
 
