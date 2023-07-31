@@ -15,7 +15,7 @@ SongList Screenshot
 ![List Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Songlist.jpg)
 
 Main Screenshot
-![main Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Main.jpg)
+![main Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/MainPage.jpg)
 
 
 
