@@ -1,6 +1,7 @@
 package com.example.music;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.karumi.dexter.Dexter;
@@ -24,7 +26,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private Button btnRequest;
+    AlertDialog.Builder builder;
     ListView listView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listView);
+        builder = new AlertDialog.Builder(this);
 //        btnRequest = findViewById(R.id.btnPermission);
 //        btnRequest.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -137,5 +143,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         requestPermissions();
+    }
+
+    @Override
+    public void onBackPressed() {
+        builder.setTitle("Quit");
+        builder.setMessage("Do you really want to quit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finishAffinity();
+//                finish();
+//                System.exit(0);
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

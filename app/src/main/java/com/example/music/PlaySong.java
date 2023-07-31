@@ -23,8 +23,10 @@ public class PlaySong extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mediaPlayer.stop();
-        mediaPlayer.release();
-        updateSeek.interrupt();
+//        mediaPlayer.release();
+//        updateSeek.interrupt();
+
+
     }
 
     private static int sTime;
@@ -41,6 +43,12 @@ public class PlaySong extends AppCompatActivity {
     SeekBar seekBar;
     Thread updateSeek;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,11 +168,8 @@ public class PlaySong extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-
 //                mediaPlayer.release();
                 nextSong();
-
-
             }
         });
 
@@ -188,6 +193,13 @@ public class PlaySong extends AppCompatActivity {
         textContent = songs.get(position).getName();
         textView.setText(textContent);
         totalTime.setText(String.format("%d:%d", TimeUnit.MILLISECONDS.toMinutes((long) tDuration), TimeUnit.MILLISECONDS.toSeconds((long) tDuration) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) tDuration))));
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                nextSong();
+            }
+        });
+
 
     }
 
@@ -213,6 +225,7 @@ public class PlaySong extends AppCompatActivity {
 
         }
 
+
     }
 
     void previousSong(){
@@ -221,6 +234,7 @@ public class PlaySong extends AppCompatActivity {
         } else {
             position = songs.size() - 1;
         }
+
     }
 
 
