@@ -6,7 +6,7 @@ An app to make your day better with a very good UI. Enjoy listning to the downlo
 
 ## Screenshots
 Splash  
-![Splash Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Splash.jpg)
+![Splash Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Splashscreen.jpg)
 
 Permission 
 ![Permission Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Permission.png)
