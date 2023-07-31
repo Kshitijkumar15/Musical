@@ -16,6 +16,7 @@ The app requests permission to access the internal storage in order to retrieve 
 ![Permission Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Permission.png)
 
 Song List 
+
 ![List Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Songlist.jpg)
 
 Main 
@@ -27,6 +28,7 @@ All the music controls are here..
 Alert 
 
 Alert dialogue for usser to exit the app.
+
 ![Alert](https://github.com/Kshitijkumar15/Music/blob/main/Quit.jpg)
 
 
