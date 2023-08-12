@@ -1,10 +1,29 @@
 
 # Music App
 
+## Description
 
+The MusicPlayer app is a sleek and user-friendly music player that grants you access to your device's internal storage, enabling you to effortlessly explore and enjoy your favorite songs. With a comprehensive list of features, including play, pause, skip to the next track, and more, the MusicPlayer app transforms your device into a versatile music playback tool.
+
+## Features
+
+- Access and display a list of songs from your device's internal storage.
+- Play, pause, and control the playback of songs.
+- Skip to the next or previous track for uninterrupted music enjoyment.
+- Adjust volume and control playback progress.
+- Display song metadata, including title, artist, and album information.
+
+## Usage
+
+1. Launch the MusicPlayer app on your device.
+2. Grant the necessary permissions to access your device's internal storage.
+3. The app will automatically scan and display a list of available songs.
+4. Select a song from the list to start playback.
+5. Use the on-screen controls to play, pause, skip tracks, adjust volume, and control playback progress.
 
 
 ## Screenshots
+
 Splash  
 
 ![Splash Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Splashscreen.jpg)
@@ -30,6 +49,18 @@ Alert
 Alert dialogue for usser to exit the app.
 
 ![Alert](https://github.com/Kshitijkumar15/Music/blob/main/Quit.jpg)
+
+
+## Contact
+
+- Author: Kshitij kumar singh
+- Email: [Email](kshitijkumarsingh58@gmail.com)
+- GitHub: [Kshitijkumar15](https://github.com/kshitijkumar15)
+
+
+## Feedback
+
+If you have any feedback, please reach out to me at kshitijkumarsingh58@gmail.com
 
 
 
