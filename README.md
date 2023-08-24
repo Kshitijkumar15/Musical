@@ -24,6 +24,7 @@ The MusicPlayer app is a sleek and user-friendly music player that grants you ac
 
 ## Screenshots
 <div align="center">
+  
 ### Splash  
 
 ![Splash Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Splashscreen.jpg)
