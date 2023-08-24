@@ -23,37 +23,37 @@ The MusicPlayer app is a sleek and user-friendly music player that grants you ac
 
 
 ## Screenshots
-
-Splash  
+<div align="center">
+### Splash  
 
 ![Splash Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Splashscreen.jpg)
 
-Permission 
+### Permission 
 
 The app requests permission to access the internal storage in order to retrieve music files (.mp3 files) and present them to you in the form of a list.
 
 ![Permission Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Permission.png)
 
-Song List 
+### Song List 
 
 ![List Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/Songlist.jpg)
 
-Main 
+### Main 
 
-All the music controls are here..
+All the music controls are here.
 
 ![main Screenshot](https://github.com/Kshitijkumar15/Music/blob/main/MainPage.jpg)
 
-Alert 
+### Alert 
 
-Alert dialogue for usser to exit the app.
+Alert dialogue for the user to exit the app.
 
 ![Alert](https://github.com/Kshitijkumar15/Music/blob/main/Quit.jpg)
-
+</div>
 
 ## Contact
 
-- Author: Kshitij kumar singh
+- Author: Kshitij Kumar Singh
 - Email: kshitijkumarsingh58@gmail.com
 - GitHub: [Kshitijkumar15](https://github.com/kshitijkumar15)
 
