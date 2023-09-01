@@ -2,7 +2,7 @@
 
 ## Description
 
-The MusicPlayer app is a sleek and user-friendly music player that grants you access to your device's internal storage, enabling you to effortlessly explore and enjoy your favourite songs. With a comprehensive list of features, including play, pause, skip to the next track, and more, the MusicPlayer app transforms your device into a versatile music playback tool.
+The MusicPlayer app is a sleek and user-friendly music player that grants access to your device's internal storage, enabling you to explore and enjoy your favourite songs effortlessly. With a comprehensive list of features, including play, pause, skip to the next track, the MusicPlayer app transforms your device into a versatile music playback tool.
 
 ## Features
 
