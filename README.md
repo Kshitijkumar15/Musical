@@ -56,7 +56,9 @@ Alert dialogue for the user to exit the app.
 ![Alert](https://github.com/Kshitijkumar15/Music/blob/main/Quit.jpg)
 $~~~~~~$
 </div>
+
 $~~~~~~$
+
 ## Contact
 
 - Author: Kshitij Kumar Singh
