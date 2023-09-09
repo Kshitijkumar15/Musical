@@ -1,9 +1,10 @@
 <div align="center">
   
-  # Music App
+  # Musical App
   </div>
 
 ## Description
+"Your Music, Your Rules: Elevate Your Playlist Game"
 
 The MusicPlayer app is a sleek and user-friendly music player that grants access to your device's internal storage, enabling you to explore and enjoy your favourite songs effortlessly. With a comprehensive list of features, including play, pause, skip to the next track, the MusicPlayer app transforms your device into a versatile music playback tool.
 $~~~~~~$
