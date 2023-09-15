@@ -7,7 +7,9 @@
 "Your Music, Your Rules: Elevate Your Playlist Game"
 
 The MusicPlayer app is a sleek and user-friendly music player that grants access to your device's internal storage, enabling you to explore and enjoy your favourite songs effortlessly. With a comprehensive list of features, including play, pause, and skip to the next track, the MusicPlayer app transforms your device into a versatile music playback tool.
+
 $~~~~~~$
+
 ## Features
 
 - Access and display a list of songs from your device's internal storage.
@@ -15,7 +17,9 @@ $~~~~~~$
 - Skip to the next or previous track for uninterrupted music enjoyment.
 - Adjust volume and control playback progress.
 - Display song metadata, including title, artist, and album information.
+  
 $~~~~~~$
+
 ## Usage
 
 1. Launch the MusicPlayer app on your device.
@@ -25,6 +29,7 @@ $~~~~~~$
 5. Use the on-screen controls to play, pause, skip tracks, adjust volume, and control playback progress.
 
 $~~~~~~$
+
 ## Screenshots
 <div align="center">
   
