@@ -15,38 +15,35 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 public class PlaySong extends AppCompatActivity {
+
+    private static int sTime;
+    private TextView currentTime, totalTime;
+
+    private final Handler hand = new Handler();
+    TextView textView;
+    ImageView play, previous, next, shuffleButton, loopButton;
+    ArrayList<File> songs;
+    MediaPlayer mediaPlayer;
+    String textContent;
+    int position, tDuration;
+    SeekBar seekBar;
+    Thread updateSeek;
+    boolean isLooping = false;
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mediaPlayer.stop();
-//        mediaPlayer.release();
-//        updateSeek.interrupt();
-
-
     }
-
-    private static int sTime;
-    private TextView currentTime, totalTime;
-
-
-    private final Handler hand = new Handler();
-    TextView textView;
-    ImageView play, previous, next;
-    ArrayList<File> songs;
-    MediaPlayer mediaPlayer;
-    String textContent;
-    int position,tDuration;
-    SeekBar seekBar;
-    Thread updateSeek;
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
@@ -58,6 +55,8 @@ public class PlaySong extends AppCompatActivity {
         play = findViewById(R.id.play);
         previous = findViewById(R.id.previous);
         next = findViewById(R.id.next);
+        shuffleButton = findViewById(R.id.shuffle);
+        loopButton = findViewById(R.id.loop);
         seekBar = findViewById(R.id.seekBar);
         currentTime = findViewById(R.id.currentTimer);
         totalTime = findViewById(R.id.totalTimer);
@@ -105,8 +104,6 @@ public class PlaySong extends AppCompatActivity {
             }
         });
 
-
-
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,35 +111,10 @@ public class PlaySong extends AppCompatActivity {
             }
         });
 
-//        updateSeek = new Thread() {
-//            @Override
-//            public void run() {
-//                int currentPosition = 0;
-//                try {
-//                    while (currentPosition < mediaPlayer.getDuration()) {
-//                        currentPosition = mediaPlayer.getCurrentPosition();
-//                        seekBar.setProgress(currentPosition);
-//                        seekBar.setMax(mediaPlayer.getDuration());
-//                        sleep(800);
-//                    }
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        };
-//        updateSeek.start();
-
-
-
-
-
-
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 previousSong();
-//                mediaPlayer.stop();
-//                mediaPlayer.release();
 
                 Uri uri = Uri.parse(songs.get(position).toString());
                 mediaPlayer.reset();
@@ -156,32 +128,73 @@ public class PlaySong extends AppCompatActivity {
                 textContent = songs.get(position).getName();
                 textView.setText(textContent);
                 totalTime.setText(String.format("%d:%d", TimeUnit.MILLISECONDS.toMinutes((long) tDuration), TimeUnit.MILLISECONDS.toSeconds((long) tDuration) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) tDuration))));
-
             }
         });
-
 
         next.setOnClickListener(new View.OnClickListener() {
             int tDuration;
 
             @SuppressLint("DefaultLocale")
             @Override
-
             public void onClick(View v) {
-//                mediaPlayer.release();
                 nextSong();
             }
         });
 
+        // Initialize shuffle button
+        shuffleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shuffleSongs();
+            }
+        });
+
+        // Initialize loop button
+        loopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleLoop();
+            }
+        });
     }
 
-    void nextSong(){
-        if (position != songs.size() - 1) {
-            position = position + 1;
+    void toggleLoop() {
+        isLooping = !isLooping;
 
+        if (isLooping) {
+            mediaPlayer.setLooping(true);
+            loopButton.setImageResource(R.drawable.disable);
+        } else {
+            mediaPlayer.setLooping(false);
+            loopButton.setImageResource(R.drawable.enable);
+        }
+    }
+
+    void shuffleSongs() {
+        Collections.shuffle(songs);
+        position = 0;
+        playSelectedSong();
+    }
+
+    void nextSong() {
+        if (position != songs.size() - 1) {
+            position++;
         } else {
             position = 0;
         }
+        playSelectedSong();
+    }
+
+    void previousSong() {
+        if (position != 0) {
+            position--;
+        } else {
+            position = songs.size() - 1;
+        }
+        playSelectedSong();
+    }
+
+    void playSelectedSong() {
         Uri uri = Uri.parse(songs.get(position).toString());
         mediaPlayer.reset();
         mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
@@ -199,10 +212,7 @@ public class PlaySong extends AppCompatActivity {
                 nextSong();
             }
         });
-
-
     }
-
 
     private final Runnable UpdateSongTime = new Runnable() {
         @Override
@@ -214,30 +224,13 @@ public class PlaySong extends AppCompatActivity {
         }
     };
 
-
-    void playSong(){
+    void playSong() {
         if (mediaPlayer.isPlaying()) {
             play.setImageResource(R.drawable.play);
             mediaPlayer.pause();
         } else {
             play.setImageResource(R.drawable.pause);
             mediaPlayer.start();
-
         }
-
-
     }
-
-    void previousSong(){
-        if (position != 0) {
-            position = position - 1;
-        } else {
-            position = songs.size() - 1;
-        }
-
-    }
-
-
-
-
 }
