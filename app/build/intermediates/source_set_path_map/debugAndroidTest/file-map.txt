@@ -1,0 +1,6 @@
+com.example.music.test.app-annotation-experimental-1.3.0-0 /Users/kshitij/.gradle/caches/transforms-3/4f735b77350aefc156737b8f9bd0fa95/transformed/annotation-experimental-1.3.0/res
+com.example.music.test.app-core-1.5.0-1 /Users/kshitij/.gradle/caches/transforms-3/7df3ea80e358b7c626734a27a40524e6/transformed/core-1.5.0/res
+com.example.music.test.app-androidTest-2 /Users/kshitij/AndroidStudioProjects/Music/app/build/generated/res/resValues/androidTest/debug
+com.example.music.test.app-mergeDebugAndroidTestResources-3 /Users/kshitij/AndroidStudioProjects/Music/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.example.music.test.app-mergeDebugAndroidTestResources-4 /Users/kshitij/AndroidStudioProjects/Music/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.example.music.test.app-merged_res-5 /Users/kshitij/AndroidStudioProjects/Music/app/build/intermediates/merged_res/debugAndroidTest

@@ -1,0 +1,110 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.music"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="32" />
+10
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:5:5-80
+11-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:5:22-77
+12
+13    <permission
+13-->[androidx.core:core:1.9.0] /Users/kshitij/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+14        android:name="com.example.music.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.9.0] /Users/kshitij/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.9.0] /Users/kshitij/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="com.example.music.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.9.0] /Users/kshitij/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.9.0] /Users/kshitij/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:7:5-33:19
+20        android:allowBackup="true"
+20-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:8:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.9.0] /Users/kshitij/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+22        android:dataExtractionRules="@xml/data_extraction_rules"
+22-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:9:9-65
+23        android:debuggable="true"
+24        android:extractNativeLibs="false"
+25        android:fullBackupContent="@xml/backup_rules"
+25-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:10:9-54
+26        android:icon="@mipmap/ic_launcher"
+26-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:11:9-43
+27        android:label="@string/app_name"
+27-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:12:9-41
+28        android:requestLegacyExternalStorage="true"
+28-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:13:9-52
+29        android:supportsRtl="true"
+29-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:14:9-35
+30        android:testOnly="true"
+31        android:theme="@style/Theme.Music" >
+31-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:15:9-43
+32        <activity
+32-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:17:9-25:20
+33            android:name="com.example.music.splashScreen"
+33-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:18:13-41
+34            android:exported="true" >
+34-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:19:13-36
+35            <intent-filter>
+35-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:20:13-24:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:21:17-69
+36-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:21:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:23:17-77
+38-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:23:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity
+41-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:26:9-29:58
+42            android:name="com.example.music.PlaySong"
+42-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:27:13-37
+43            android:exported="false"
+43-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:28:13-37
+44            android:parentActivityName="com.example.music.MainActivity" />
+44-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:29:13-55
+45        <activity
+45-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:30:9-32:48
+46            android:name="com.example.music.MainActivity"
+46-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:31:13-41
+47            android:exported="true" />
+47-->/Users/kshitij/AndroidStudioProjects/Music/app/src/main/AndroidManifest.xml:32:13-36
+48        <activity
+48-->[com.karumi:dexter:6.2.3] /Users/kshitij/.gradle/caches/transforms-3/dd44181dd8962721afb8c664203ee925/transformed/dexter-6.2.3/AndroidManifest.xml:27:9-29:72
+49            android:name="com.karumi.dexter.DexterActivity"
+49-->[com.karumi:dexter:6.2.3] /Users/kshitij/.gradle/caches/transforms-3/dd44181dd8962721afb8c664203ee925/transformed/dexter-6.2.3/AndroidManifest.xml:28:13-60
+50            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+50-->[com.karumi:dexter:6.2.3] /Users/kshitij/.gradle/caches/transforms-3/dd44181dd8962721afb8c664203ee925/transformed/dexter-6.2.3/AndroidManifest.xml:29:13-69
+51
+52        <provider
+52-->[androidx.emoji2:emoji2:1.2.0] /Users/kshitij/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+53            android:name="androidx.startup.InitializationProvider"
+53-->[androidx.emoji2:emoji2:1.2.0] /Users/kshitij/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+54            android:authorities="com.example.music.androidx-startup"
+54-->[androidx.emoji2:emoji2:1.2.0] /Users/kshitij/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+55            android:exported="false" >
+55-->[androidx.emoji2:emoji2:1.2.0] /Users/kshitij/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+56            <meta-data
+56-->[androidx.emoji2:emoji2:1.2.0] /Users/kshitij/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+57                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+57-->[androidx.emoji2:emoji2:1.2.0] /Users/kshitij/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+58                android:value="androidx.startup" />
+58-->[androidx.emoji2:emoji2:1.2.0] /Users/kshitij/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+59            <meta-data
+59-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/kshitij/.gradle/caches/transforms-3/0c97545945a2f609e9103ca2ef476be4/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+60                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+60-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/kshitij/.gradle/caches/transforms-3/0c97545945a2f609e9103ca2ef476be4/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+61                android:value="androidx.startup" />
+61-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/kshitij/.gradle/caches/transforms-3/0c97545945a2f609e9103ca2ef476be4/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+62        </provider>
+63    </application>
+64
+65</manifest>
